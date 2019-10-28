@@ -1,0 +1,19 @@
+{
+  "name": "config-components",
+  "version": "1.0.0",
+  "description": "Web components to be used in new config panel for template apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nwisehart/config-components.git"
+  },
+  "author": "Nick Wisehart",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nwisehart/config-components/issues"
+  },
+  "homepage": "https://github.com/nwisehart/config-components#readme"
+}
