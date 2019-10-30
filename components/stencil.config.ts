@@ -4,15 +4,10 @@ export const config: Config = {
   namespace: 'components',
   outputTargets: [
     {
-      type: 'dist',
-      esmLoaderPath: '../loader'
+      type: 'dist'
     },
     {
       type: 'docs-readme'
-    },
-    {
-      type: 'www',
-      serviceWorker: null // disable service workers
     }
   ]
 };

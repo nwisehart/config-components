@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
   <title>Stencil Component Starter</title>
 
-  <script type="module" src="/build/components.esm.js"></script>
-  <script nomodule src="/build/components.js"></script>
+  <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/css/calcite-web.min.css">
+
+ <script type="module" src="components/components.esm.js"></script>
+<script nomodule src="components/components.js"></script>
 
 </head>
 <body>
+  <div class="wrapper" style="margin: 50px;">
+    <h1>Test Page</h1>
+    <test-component></test-component>
+  </div>
 
-  <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+  <!-- get calcite-web js from the cdn (use latest version) -->
+  <script src="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/js/calcite-web.min.js"></script>
 
+  <!-- interactive patterns need to be initialized -->
+  <script>
+    calcite.init()
+  </script>
 </body>
 </html>
