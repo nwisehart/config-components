@@ -114,13 +114,14 @@ export class BasicCard {
             ></basic-checkbox>
           );
         case "options":
-          console.log("options");
+          console.log("options", setting);
           return (
-            <basic-string
+            <basic-select
               label={setting.label}
               tooltip={setting.tooltip}
+              options={setting.options}
               change={this.handleChange.bind(this,setting.fieldName)}
-            ></basic-string>
+            ></basic-select>
           );
         default:
           console.log("default");

@@ -49,6 +49,28 @@ export namespace Components {
     */
     'tooltip': string;
   }
+  interface BasicSelect {
+    /**
+    * Function to handle select dropdown change and affect state
+    */
+    'change': (event: Event) => void;
+    /**
+    * The current value for the select dropdown
+    */
+    'current': string;
+    /**
+    * The label for the select dropdown
+    */
+    'label': string;
+    /**
+    * The options for the select dropdown
+    */
+    'options': Option[];
+    /**
+    * The tooltip for the select dropdown
+    */
+    'tooltip': string;
+  }
   interface BasicString {
     /**
     * Function to handle input change and affect state
@@ -85,6 +107,12 @@ declare global {
     new (): HTMLBasicCheckboxElement;
   };
 
+  interface HTMLBasicSelectElement extends Components.BasicSelect, HTMLStencilElement {}
+  var HTMLBasicSelectElement: {
+    prototype: HTMLBasicSelectElement;
+    new (): HTMLBasicSelectElement;
+  };
+
   interface HTMLBasicStringElement extends Components.BasicString, HTMLStencilElement {}
   var HTMLBasicStringElement: {
     prototype: HTMLBasicStringElement;
@@ -99,6 +127,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'basic-card': HTMLBasicCardElement;
     'basic-checkbox': HTMLBasicCheckboxElement;
+    'basic-select': HTMLBasicSelectElement;
     'basic-string': HTMLBasicStringElement;
     'test-component': HTMLTestComponentElement;
   }
@@ -141,6 +170,28 @@ declare namespace LocalJSX {
     */
     'tooltip'?: string;
   }
+  interface BasicSelect {
+    /**
+    * Function to handle select dropdown change and affect state
+    */
+    'change'?: (event: Event) => void;
+    /**
+    * The current value for the select dropdown
+    */
+    'current'?: string;
+    /**
+    * The label for the select dropdown
+    */
+    'label'?: string;
+    /**
+    * The options for the select dropdown
+    */
+    'options'?: Option[];
+    /**
+    * The tooltip for the select dropdown
+    */
+    'tooltip'?: string;
+  }
   interface BasicString {
     /**
     * Function to handle input change and affect state
@@ -164,6 +215,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'basic-card': BasicCard;
     'basic-checkbox': BasicCheckbox;
+    'basic-select': BasicSelect;
     'basic-string': BasicString;
     'test-component': TestComponent;
   }
@@ -177,6 +229,7 @@ declare module "@stencil/core" {
     interface IntrinsicElements {
       'basic-card': LocalJSX.BasicCard & JSXBase.HTMLAttributes<HTMLBasicCardElement>;
       'basic-checkbox': LocalJSX.BasicCheckbox & JSXBase.HTMLAttributes<HTMLBasicCheckboxElement>;
+      'basic-select': LocalJSX.BasicSelect & JSXBase.HTMLAttributes<HTMLBasicSelectElement>;
       'basic-string': LocalJSX.BasicString & JSXBase.HTMLAttributes<HTMLBasicStringElement>;
       'test-component': LocalJSX.TestComponent & JSXBase.HTMLAttributes<HTMLTestComponentElement>;
     }

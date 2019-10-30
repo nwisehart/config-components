@@ -34,3 +34,9 @@ export const testJSON = [{
     "tooltip": "When enabled, this will add a legend to the map allowing users to interpret the symbology used."
   }]
 }];
+
+// const outputJSON = {
+//   "title": "test",
+//   "showSignInBtn": true,
+//   "legendWidget": "bottom-right"
+// };
