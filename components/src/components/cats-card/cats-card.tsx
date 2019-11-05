@@ -1,12 +1,13 @@
 import { Component, Prop, Method, h } from '@stencil/core';
 import { BasicSetting } from '../../utils/utils';
+import "@esri/calcite-app-components";
 
 @Component({
-  tag: 'basic-card',
-  styleUrl: 'basic-card.css',
+  tag: 'cats-card',
+  styleUrl: 'cats-card.css',
   shadow: false
 })
-export class BasicCard {
+export class CatsCard {
 
   /**
    * The title for the card
@@ -97,40 +98,40 @@ export class BasicCard {
         case "string":
           console.log("string");
           return (
-            <basic-string
+            <cats-input
               label={setting.label}
               tooltip={setting.tooltip}
               change={this.handleChange.bind(this,setting.fieldName)}
-            ></basic-string>
+            ></cats-input>
           );
         case "boolean":
           console.log("boolean");
           return (
-            <basic-checkbox
+            <cats-checkbox
               label={setting.label}
               tooltip={setting.tooltip}
               checked={false}
               change={this.handleCheckboxChange.bind(this,setting.fieldName)}
-            ></basic-checkbox>
+            ></cats-checkbox>
           );
         case "options":
           console.log("options", setting);
           return (
-            <basic-select
+            <cats-select
               label={setting.label}
               tooltip={setting.tooltip}
               options={setting.options}
               change={this.handleChange.bind(this,setting.fieldName)}
-            ></basic-select>
+            ></cats-select>
           );
         default:
           console.log("default");
           return (
-            <basic-string
+            <cats-input
               label={setting.label}
               tooltip={setting.tooltip}
               change={this.handleChange.bind(this,setting.fieldName)}
-            ></basic-string>
+            ></cats-input>
           );
       }
     });
@@ -144,14 +145,8 @@ export class BasicCard {
   }
 
   render() {
-    const collapseArrow = (<button class="container-close" style={this.collapseStyling} onClick={this.handleFauxCollapse.bind(this)}>
-                          <svg id='up-arrow' xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="svg-icon"><path d="M4 23v-5L16 6l12 12v5L16 11 4 23z"/></svg>
-                          <svg id='down-arrow' xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" class="svg-icon hide"><path d="M28 9v5L16 26 4 14V9l12 12L28 9z"/></svg>
-                        </button>);
     return (
-      <div class="card card-bar-blue block trailer-1" style={{'width': '350px'}}>
-        <div class="card-content">
-          <h4 class="trailer-0">{this.parseHtml(this.cardTitle)}</h4>
+      <calcite-block heading={this.parseHtml(this.cardTitle)} collapsible={this.collapsible} open>
           <div class="container leader-1" id="collapseContainer">
             {this.cardText ? (<p class="font-size--1">{this.cardText}</p>) : ('')}
             {this.settings ? this.cycleSettings() : ''}
@@ -167,9 +162,7 @@ export class BasicCard {
                 </button>
             </div>
           </div>
-          {this.collapsible ? collapseArrow : ''}
-        </div>
-      </div>
+        </calcite-block>
     );
   }
 

@@ -10,9 +10,12 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 import {
   BasicSetting,
 } from './utils/utils';
+import {
+  DropdownOption,
+} from './components/cats-select/cats-select';
 
 export namespace Components {
-  interface BasicCard {
+  interface CatsCard {
     /**
     * The text to be displayed on the card
     */
@@ -31,7 +34,7 @@ export namespace Components {
     */
     'settings': BasicSetting[];
   }
-  interface BasicCheckbox {
+  interface CatsCheckbox {
     /**
     * Function to handle input change and affect state
     */
@@ -49,29 +52,7 @@ export namespace Components {
     */
     'tooltip': string;
   }
-  interface BasicSelect {
-    /**
-    * Function to handle select dropdown change and affect state
-    */
-    'change': (event: Event) => void;
-    /**
-    * The current value for the select dropdown
-    */
-    'current': string;
-    /**
-    * The label for the select dropdown
-    */
-    'label': string;
-    /**
-    * The options for the select dropdown
-    */
-    'options': Option[];
-    /**
-    * The tooltip for the select dropdown
-    */
-    'tooltip': string;
-  }
-  interface BasicString {
+  interface CatsInput {
     /**
     * Function to handle input change and affect state
     */
@@ -89,34 +70,56 @@ export namespace Components {
     */
     'tooltip': string;
   }
+  interface CatsSelect {
+    /**
+    * Function to handle select dropdown change and affect state
+    */
+    'change': (event: Event) => void;
+    /**
+    * The current value for the select dropdown
+    */
+    'current': string;
+    /**
+    * The label for the select dropdown
+    */
+    'label': string;
+    /**
+    * The options for the select dropdown
+    */
+    'options': DropdownOption[];
+    /**
+    * The tooltip for the select dropdown
+    */
+    'tooltip': string;
+  }
   interface TestComponent {}
 }
 
 declare global {
 
 
-  interface HTMLBasicCardElement extends Components.BasicCard, HTMLStencilElement {}
-  var HTMLBasicCardElement: {
-    prototype: HTMLBasicCardElement;
-    new (): HTMLBasicCardElement;
+  interface HTMLCatsCardElement extends Components.CatsCard, HTMLStencilElement {}
+  var HTMLCatsCardElement: {
+    prototype: HTMLCatsCardElement;
+    new (): HTMLCatsCardElement;
   };
 
-  interface HTMLBasicCheckboxElement extends Components.BasicCheckbox, HTMLStencilElement {}
-  var HTMLBasicCheckboxElement: {
-    prototype: HTMLBasicCheckboxElement;
-    new (): HTMLBasicCheckboxElement;
+  interface HTMLCatsCheckboxElement extends Components.CatsCheckbox, HTMLStencilElement {}
+  var HTMLCatsCheckboxElement: {
+    prototype: HTMLCatsCheckboxElement;
+    new (): HTMLCatsCheckboxElement;
   };
 
-  interface HTMLBasicSelectElement extends Components.BasicSelect, HTMLStencilElement {}
-  var HTMLBasicSelectElement: {
-    prototype: HTMLBasicSelectElement;
-    new (): HTMLBasicSelectElement;
+  interface HTMLCatsInputElement extends Components.CatsInput, HTMLStencilElement {}
+  var HTMLCatsInputElement: {
+    prototype: HTMLCatsInputElement;
+    new (): HTMLCatsInputElement;
   };
 
-  interface HTMLBasicStringElement extends Components.BasicString, HTMLStencilElement {}
-  var HTMLBasicStringElement: {
-    prototype: HTMLBasicStringElement;
-    new (): HTMLBasicStringElement;
+  interface HTMLCatsSelectElement extends Components.CatsSelect, HTMLStencilElement {}
+  var HTMLCatsSelectElement: {
+    prototype: HTMLCatsSelectElement;
+    new (): HTMLCatsSelectElement;
   };
 
   interface HTMLTestComponentElement extends Components.TestComponent, HTMLStencilElement {}
@@ -125,16 +128,16 @@ declare global {
     new (): HTMLTestComponentElement;
   };
   interface HTMLElementTagNameMap {
-    'basic-card': HTMLBasicCardElement;
-    'basic-checkbox': HTMLBasicCheckboxElement;
-    'basic-select': HTMLBasicSelectElement;
-    'basic-string': HTMLBasicStringElement;
+    'cats-card': HTMLCatsCardElement;
+    'cats-checkbox': HTMLCatsCheckboxElement;
+    'cats-input': HTMLCatsInputElement;
+    'cats-select': HTMLCatsSelectElement;
     'test-component': HTMLTestComponentElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface BasicCard {
+  interface CatsCard {
     /**
     * The text to be displayed on the card
     */
@@ -152,7 +155,7 @@ declare namespace LocalJSX {
     */
     'settings'?: BasicSetting[];
   }
-  interface BasicCheckbox {
+  interface CatsCheckbox {
     /**
     * Function to handle input change and affect state
     */
@@ -170,29 +173,7 @@ declare namespace LocalJSX {
     */
     'tooltip'?: string;
   }
-  interface BasicSelect {
-    /**
-    * Function to handle select dropdown change and affect state
-    */
-    'change'?: (event: Event) => void;
-    /**
-    * The current value for the select dropdown
-    */
-    'current'?: string;
-    /**
-    * The label for the select dropdown
-    */
-    'label'?: string;
-    /**
-    * The options for the select dropdown
-    */
-    'options'?: Option[];
-    /**
-    * The tooltip for the select dropdown
-    */
-    'tooltip'?: string;
-  }
-  interface BasicString {
+  interface CatsInput {
     /**
     * Function to handle input change and affect state
     */
@@ -210,13 +191,35 @@ declare namespace LocalJSX {
     */
     'tooltip'?: string;
   }
+  interface CatsSelect {
+    /**
+    * Function to handle select dropdown change and affect state
+    */
+    'change'?: (event: Event) => void;
+    /**
+    * The current value for the select dropdown
+    */
+    'current'?: string;
+    /**
+    * The label for the select dropdown
+    */
+    'label'?: string;
+    /**
+    * The options for the select dropdown
+    */
+    'options'?: DropdownOption[];
+    /**
+    * The tooltip for the select dropdown
+    */
+    'tooltip'?: string;
+  }
   interface TestComponent {}
 
   interface IntrinsicElements {
-    'basic-card': BasicCard;
-    'basic-checkbox': BasicCheckbox;
-    'basic-select': BasicSelect;
-    'basic-string': BasicString;
+    'cats-card': CatsCard;
+    'cats-checkbox': CatsCheckbox;
+    'cats-input': CatsInput;
+    'cats-select': CatsSelect;
     'test-component': TestComponent;
   }
 }
@@ -227,10 +230,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'basic-card': LocalJSX.BasicCard & JSXBase.HTMLAttributes<HTMLBasicCardElement>;
-      'basic-checkbox': LocalJSX.BasicCheckbox & JSXBase.HTMLAttributes<HTMLBasicCheckboxElement>;
-      'basic-select': LocalJSX.BasicSelect & JSXBase.HTMLAttributes<HTMLBasicSelectElement>;
-      'basic-string': LocalJSX.BasicString & JSXBase.HTMLAttributes<HTMLBasicStringElement>;
+      'cats-card': LocalJSX.CatsCard & JSXBase.HTMLAttributes<HTMLCatsCardElement>;
+      'cats-checkbox': LocalJSX.CatsCheckbox & JSXBase.HTMLAttributes<HTMLCatsCheckboxElement>;
+      'cats-input': LocalJSX.CatsInput & JSXBase.HTMLAttributes<HTMLCatsInputElement>;
+      'cats-select': LocalJSX.CatsSelect & JSXBase.HTMLAttributes<HTMLCatsSelectElement>;
       'test-component': LocalJSX.TestComponent & JSXBase.HTMLAttributes<HTMLTestComponentElement>;
     }
   }

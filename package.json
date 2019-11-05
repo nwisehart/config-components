@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/nwisehart/config-components#readme",
   "dependencies": {
+    "@esri/calcite-app-components": "^4.4.0",
     "@esri/calcite-components": "^1.0.0-beta.11",
     "calcite-web": "github:Esri/calcite-web#v1.2.5",
     "typescript": "^3.6.4"

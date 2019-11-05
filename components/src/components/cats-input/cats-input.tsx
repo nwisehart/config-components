@@ -1,11 +1,11 @@
 import { Component, Prop, h } from '@stencil/core';
 
 @Component({
-  tag: 'basic-string',
-  styleUrl: 'basic-string.css',
+  tag: 'cats-input',
+  styleUrl: 'cats-input.css',
   shadow: false
 })
-export class BasicString {
+export class CatsInput {
 
   /**
    * The label for the input

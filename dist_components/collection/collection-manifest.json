@@ -1,0 +1,14 @@
+{
+  "entries": [
+    "components/basic-card/basic-card.js",
+    "components/basic-string/basic-string.js",
+    "components/test-component/test-component.js"
+  ],
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.7.4",
+    "typescriptVersion": "3.6.3"
+  },
+  "collections": [],
+  "bundles": []
+}

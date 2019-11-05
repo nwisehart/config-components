@@ -1,11 +1,11 @@
 import { Component, Prop, h, Listen } from '@stencil/core';
 
 @Component({
-  tag: 'basic-checkbox',
-  styleUrl: 'basic-checkbox.css',
+  tag: 'cats-checkbox',
+  styleUrl: 'cats-checkbox.css',
   shadow: false
 })
-export class BasicCheckbox {
+export class CatsCheckbox {
 
   /**
    * The label for the checkbox
@@ -35,11 +35,13 @@ export class BasicCheckbox {
   render() {
     return (
       <label>
-        <input type="checkbox" checked={this.checked} />
+        <calcite-checkbox checked={this.checked} />
         {this.label}
       </label>
     );
   }
+}
+
 /**
  * Code for toggle instead of checkbox
  */
@@ -48,4 +50,3 @@ export class BasicCheckbox {
 //   <span class="toggle-switch-track margin-right-1"></span>
 //   <span class="toggle-switch-label font-size--1">Inline example</span>
 // </label>
-}

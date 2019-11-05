@@ -1,16 +1,16 @@
 import { Component, Prop, Listen, h } from '@stencil/core';
 
-interface Option {
+export interface DropdownOption {
   label: string;
   value: string;
 }
 
 @Component({
-  tag: 'basic-select',
-  styleUrl: 'basic-select.css',
+  tag: 'cats-select',
+  styleUrl: 'cats-select.css',
   shadow: false
 })
-export class BasicSelect {
+export class CatsSelect {
 
   /**
    * The label for the select dropdown
@@ -25,7 +25,7 @@ export class BasicSelect {
   /**
    * The options for the select dropdown
    */
-  @Prop() options: Option[];
+  @Prop() options: DropdownOption[];
 
   /**
    * The current value for the select dropdown
@@ -56,3 +56,4 @@ export class BasicSelect {
   }
 
 }
+
